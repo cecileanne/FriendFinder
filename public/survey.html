@@ -33,7 +33,7 @@
         <div class="row">
           <div class="input-field col s12">
             <input
-              placeholder="Tom Hiddleston"
+              placeholder="Kittens McGee"
               id="friendName"
               type="text"
               class="validate"
@@ -45,16 +45,19 @@
         <div class="row">
           <div class="input-field col s12">
             <input
-              placeholder="http://yourimage.com"
+              placeholder="https://placekitten.com/g/200/300"
               id="friendPhotoURL"
               type="url"
               class="validate"
             />
-            <label for="friendPhotoURL">Link to Photo Image (Required)</label>
+            <label for="friendPhotoURL"
+              >Link to Photo Image (Required - must include http:// or
+              https://)</label
+            >
           </div>
         </div>
         <!-- question 1  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q1">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -69,7 +72,7 @@
           >
         </div>
         <!-- question 2  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q2">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -84,7 +87,7 @@
           >
         </div>
         <!-- question 3  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q3">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -99,7 +102,7 @@
           >
         </div>
         <!-- question 4  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q4">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -114,7 +117,7 @@
           >
         </div>
         <!-- question 5  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q5">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -126,7 +129,7 @@
           <label>Question 5: People can rarely upset you.</label>
         </div>
         <!-- question 6  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q6">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -141,7 +144,7 @@
           >
         </div>
         <!-- question 7  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q7">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -156,7 +159,7 @@
           >
         </div>
         <!-- question 8  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q8">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -171,7 +174,7 @@
           >
         </div>
         <!-- question 9  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q9">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -186,7 +189,7 @@
           >
         </div>
         <!-- question 10  -->
-        <div class="input-field col s12">
+        <div class="input-field col s12" id="q10">
           <select>
             <option value="">Select where you fall on this scale</option>
             <option value="1">1 (Strongly agree)</option>
@@ -201,7 +204,9 @@
           >
         </div>
         <!-- submit button  -->
-        <a class="waves-effect waves-light btn">SUBMIT</a>
+        <a class="waves-effect waves-light btn" id="matchSubmit"
+          >CLICK TO FIND YOUR MATCH</a
+        >
       </form>
     </div>
     <br />
@@ -209,9 +214,10 @@
     <hr />
     <br />
     <footer class="footer">
-      <div class="container">
+      <div class="center-align">
         <p>
-          <a href="/api/friends">API Friends List</a> |
+          <a href="./index.html">Home</a> |
+          <a href="./api/friends">API Friends List</a> |
           <a href="https://github.com/cecileanne/FriendFinder">GitHub Repo</a>
         </p>
       </div>
