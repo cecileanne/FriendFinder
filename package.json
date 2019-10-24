@@ -1,0 +1,25 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "Homework 13, Due Saturday 10/26/19",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cecileanne/FriendFinder.git"
+  },
+  "author": "Cecile-Anne Sison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cecileanne/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/cecileanne/FriendFinder#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "materialize-css": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}
