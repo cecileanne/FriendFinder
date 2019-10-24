@@ -2,7 +2,6 @@
 // =============================================================
 const express = require("express");
 const path = require("path");
-const materialize = require("materialize-css");
 
 // Sets up the Express App
 // =============================================================
