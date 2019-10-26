@@ -223,7 +223,24 @@
       </div>
     </footer>
 
-    <!-- materialze wants this script to be at the bottom -->
+    <!-- modal information ---------------->
+      <!-- Modal Trigger -->
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+    
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Your best match is</h4>
+          <p id="bestyName"></p>
+          <img id="bestyPhoto" src="bestyPhoto" alt="photo of bestyName"></img>
+        </div>
+        <div class="modal-footer">
+          <a href="/survey" class="modal-close waves-effect waves-green btn-flat .modal-close">Try another match</a>
+        </div>
+      </div>
+    <!-- END modal information ---------------->
+
+    <!-- materialize wants this script to be at the bottom -->
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-2.1.1.min.js"
