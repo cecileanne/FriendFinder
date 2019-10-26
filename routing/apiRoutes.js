@@ -12,17 +12,17 @@ module.exports = function(app) {
     return res.json(friends);
   });
 
-  // Displays a selected friend, or returns false
-  app.get("/api/friends/:routeName", function(req, res) {
-    const chosen = req.params.friend;
-    //   console.log(chosen);
-    for (var friend = 0; friend < friends.length; friend++) {
-      if (chosen === friends[friend].routeName) {
-        return res.json(friends[friend]);
-      }
-    }
-    return res.json(false);
-  });
+  //   // Displays a single character, or returns false - don't need
+  //   app.get("/api/friends/:routeName", function(req, res) {
+  //     let chosen = req.params.friend;
+  //     console.log(chosen);
+  //     for (let friendInd = 0; friendInd < friends.length; friendInd++) {
+  //       if (chosen === friends[friendInd].routeName) {
+  //         return res.json(friends[friendInd]);
+  //       }
+  //     }
+  //     return res.json(false);
+  //   });
 
   // POST routes `/api/friends`. This will be used to handle incoming survey results. This route will also be used to handle the compatibility logic.
 
@@ -65,30 +65,30 @@ module.exports = function(app) {
     // console.log(besty)
     besty = sortedArray[0].sortedFriend;
     bestyRoute = besty.replace(/\s+/g, "").toLowerCase();
+
     console.log(`your best match is ${besty}`);
     console.log(`bestyRoute is ${bestyRoute}`);
+
+    // find the besty's photo by using the bestyRoute where it is the same as the routeName of that friend
+    const friendsIndex = friends.findIndex(
+      friend => friend.routeName === bestyRoute
+    );
+    //   console.log(index);
+    //   console.log(friends[index]);
+    console.log(`bestyPhoto is ${friends[friendsIndex].photo}`);
+
+    // TO DO Once you've found the current user's most compatible friend, display the result as a modal pop-up.
+    // ------------------------ ADDING DATA FOR BESTY -----------------
+    // app.post(`/api/friend/${bestyRoute}`, res.json(data) => console.log("this" + data));
+    // console.log(data.name);
+    // console.log(data.photo);
+
+    // TO DO The modal should display both the besty.name and besty.photo of the closest match.
+    //   app.post("#modal1", function(req, res) {
+    //   }
 
     // now that the person has a besty, add them to the list of people in friends
     friends.push(newFriend);
     // res.json(newFriend);
-
-    // TO DO Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-    // TO DO The modal should display both the besty.name and besty.photo of the closest match.
-    modalBesty();
-    function modalBesty() {
-      app.get(`/api/friends/${bestyRoute}`, function(req, res) {
-        const bestyGet = req.params.friend;
-        for (var friend = 0; friend < friends.length; friend++) {
-          if (bestyGet === friends[friend].routeName) {
-            return res.json(friends[friend]);
-          }
-        }
-        return res.json(false);
-      }); // closes get for besty
-      console.log(bestyGet.name, bestyGet.photo);
-    }
-
-    //   app.post("#modal1", function(req, res) {
-    //   }
   }); // closes post
 }; // closes function(app)

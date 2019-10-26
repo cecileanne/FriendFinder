@@ -3,7 +3,7 @@
 const friends = [
   {
     routeName: "hiddlestontest",
-    name: "Tom Hiddleston",
+    name: "Hiddleston Test",
     photo:
       "https://vets-now.s3.amazonaws.com/uploads/2017/01/Common-emergencies-in-kittens-Vets-Now.jpg",
     scores: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
