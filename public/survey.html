@@ -223,11 +223,12 @@
       </div>
     </footer>
 
-    <!--Import jQuery before materialize.js-->
+    <!-- materialze wants this script to be at the bottom -->
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-2.1.1.min.js"
     ></script>
+    <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
@@ -235,6 +236,23 @@
       // initialize materialize select
       $(document).ready(function() {
         $("select").material_select();
+        // submit button collect
+        $("#matchSubmit").on("click", event => {
+          event.preventDefault();
+
+          // ------------------------ DUMMY DATA FOR TESTING -----------------
+          const dummy = {
+            //routeName: "hiddlestontest",
+            name: "Kitten McGee",
+            photo:
+              "https://vets-now.s3.amazonaws.com/uploads/2017/01/Common-emergencies-in-kittens-Vets-Now.jpg",
+            scores: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+          };
+          $.post("/api/friends", dummy, data => console.log(data));
+          // ------------------------ END DUMMY DATA FOR TESTING -----------------
+
+          $.post("/api/friends", data);
+        });
       });
     </script>
   </body>

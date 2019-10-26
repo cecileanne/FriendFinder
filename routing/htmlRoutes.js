@@ -1,29 +1,28 @@
-// Routes
-// =============================================================
+// DEPENDENCIES
+// We need to include the path package to get the correct file path for our html
+// ===============================================================================
+var path = require("path");
 
-// // Basic route that sends the user first to the AJAX Page
-// app.get("/", function(req, res) {
-//     res.sendFile(path.join(__dirname, "view.html"));
-//   });
+// ROUTING
+// ===============================================================================
+module.exports = function(app) {
+  // HTML GET Requests
+  // Below code handles when users "visit" a page.
+  // In each of the below cases the user is shown an HTML page of content
+  // ---------------------------------------------------------------------------
 
-// Displays all friends
-app.get("/api/friends", function(req, res) {
-  return res.json(friends);
-});
+  // A GET Route to `/survey` which should display the survey page.
+  app.get("/survey", function(req, res) {
+    return res.sendFile(path.join(__dirname, "../public/survey.html"));
+  });
 
-// Displays a selected friend, or returns false
-app.get("/api/friends/:friendfullname", function(req, res) {
-  const chosen = req.params.friend;
-  //   console.log(chosen);
-  for (var friend = 0; friend < friends.length; friend++) {
-    if (chosen === friends[friend].routeName) {
-      return res.json(friends[friend]);
-    }
-  }
-  return res.json(false);
-});
+  // A default, catch-all route that leads to `index.html` which displays the home page.
+  app.get("/", function(req, res) {
+    return res.sendFile(path.join(__dirname, "../public/index.html"));
+  });
 
-// TO DO: Add a friend from a form submission
-// >> get from survey.html
-
-// TO DO: Run the algorithm
+  // If no matching route is found default to home
+  app.get("*", function(req, res) {
+    res.redirect("/");
+  });
+};
