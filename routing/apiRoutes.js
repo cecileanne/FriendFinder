@@ -35,7 +35,7 @@ module.exports = function(app) {
     // Using a RegEx Pattern to remove spaces from newFriend
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
     newFriend.routeName = newFriend.name.replace(/\s+/g, "").toLowerCase();
-    // console.log(newFriend);
+    // console.log(`Survey answers for new friend: ${newFriend}`);
     // ------------------------------------------------------------------
 
     // Determine the user's most compatible friend using the following as a guide:

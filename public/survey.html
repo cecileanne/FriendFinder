@@ -261,13 +261,13 @@
           event.preventDefault();
 
           // ------------------------ DUMMY DATA FOR TESTING TO COMMENT OUT -----------------
-          const dummy = {
-            //routeName: "hiddlestontest",
-            name: "Kittenz McGee",
-            photo: "https://pbs.twimg.com/media/D6UM3ewUwAAPHVb.jpg",
-            scores: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
-          };
-          $.post("/api/friends", dummy, data => console.log(data));
+          // const dummy = {
+          //   //routeName: "hiddlestontest",
+          //   name: "Kittenz McGee",
+          //   photo: "https://pbs.twimg.com/media/D6UM3ewUwAAPHVb.jpg",
+          //   scores: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
+          // };
+          // $.post("/api/friends", dummy, data => console.log(data));
           // ------------------------ END DUMMY DATA FOR TESTING -----------------
 
           $.post("/api/friends", data);
