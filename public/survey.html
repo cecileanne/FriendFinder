@@ -204,9 +204,15 @@
           >
         </div>
         <!-- submit button  -->
-        <a class="waves-effect waves-light btn" id="matchSubmit"
-          >CLICK TO FIND YOUR MATCH</a
+        <!-- Modal Trigger -->
+        <button
+          data-target="modal1"
+          class="btn modal-trigger waves-effect waves-light"
+          id="matchSubmit"
+          window.location.href="./besty"
         >
+          Click to find your match!
+        </button>
       </form>
     </div>
     <br />
@@ -224,20 +230,17 @@
     </footer>
 
     <!-- modal information ---------------->
-      <!-- Modal Trigger -->
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Your Best Match</a>
-    
-      <!-- Modal Structure -->
-      <div id="modal1" class="modal">
+    <!-- Modal Structure -->
+    <!-- <div id="modal1" class="modal">
         <div class="modal-content">
           <h4>Your best match is</h4>
-          <p id="bestyName"></p>
-          <img id="bestyPhoto" src="bestyPhoto" alt="photo of bestyName"></img>
+          <h2 id="bestyName"></h2>
+          <img id="bestyPhoto" alt="photo of besty"></img>
         </div>
         <div class="modal-footer">
-          <a href="/survey" class="modal-close waves-effect waves-green btn-flat .modal-close">Try another match</a>
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Try another match</a>
         </div>
-      </div>
+      </div> -->
     <!-- END modal information -------------- -->
 
     <!-- materialize wants this script to be at the bottom -->
@@ -260,9 +263,8 @@
           // ------------------------ DUMMY DATA FOR TESTING TO COMMENT OUT -----------------
           const dummy = {
             //routeName: "hiddlestontest",
-            name: "Kitten McGee",
-            photo:
-              "https://vets-now.s3.amazonaws.com/uploads/2017/01/Common-emergencies-in-kittens-Vets-Now.jpg",
+            name: "Kittenz McGee",
+            photo: "https://pbs.twimg.com/media/D6UM3ewUwAAPHVb.jpg",
             scores: [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
           };
           $.post("/api/friends", dummy, data => console.log(data));

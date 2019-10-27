@@ -12,7 +12,7 @@ module.exports = function(app) {
     return res.json(friends);
   });
 
-  //   // Displays a single character, or returns false - don't need
+  //   // DO NOT NEED FOR THIS ITERATION Displays a single character, or returns false
   //   app.get("/api/friends/:routeName", function(req, res) {
   //     let chosen = req.params.friend;
   //     console.log(chosen);
@@ -66,8 +66,8 @@ module.exports = function(app) {
     besty = sortedArray[0].sortedFriend;
     bestyRoute = besty.replace(/\s+/g, "").toLowerCase();
 
-    console.log(`your best match is ${besty}`);
-    console.log(`bestyRoute is ${bestyRoute}`);
+    // console.log(`your best match is ${besty}`);
+    // console.log(`bestyRoute is ${bestyRoute}`);
 
     // find the besty's photo by using the bestyRoute where it is the same as the routeName of that friend
     const friendsIndex = friends.findIndex(
@@ -75,17 +75,42 @@ module.exports = function(app) {
     );
     //   console.log(index);
     //   console.log(friends[index]);
-    console.log(`bestyPhoto is ${friends[friendsIndex].photo}`);
+    // console.log(`bestyPhoto is ${friends[friendsIndex].photo}`);
+    bestyPhoto = friends[friendsIndex].photo;
 
-    // TO DO Once you've found the current user's most compatible friend, display the result as a modal pop-up.
-    // ------------------------ ADDING DATA FOR BESTY -----------------
-    // app.post(`/api/friend/${bestyRoute}`, res.json(data) => console.log("this" + data));
-    // console.log(data.name);
-    // console.log(data.photo);
+    // toast attempt:
+    // M.toast({ html: `Your best match is ${besty}.\nCheck out ${bestyPhoto}!` });
 
-    // TO DO The modal should display both the besty.name and besty.photo of the closest match.
-    //   app.post("#modal1", function(req, res) {
-    //   }
+    // last minute: no modal or toast
+    console.log(
+      `\n-----------\nYour best match is ${besty}.\nCheck out ${bestyPhoto}!\n-----------\n`
+    );
+
+    // Once you've found the current user's most compatible friend, display the result as a modal pop-up.
+    // The modal should display both the bestyName and bestyPhoto of the closest match.
+
+    // // initialize modal
+    // $(document).ready(function() {
+    //   $(".modal").modal();
+
+    //   // FIRST ATTEMPT TO SEND DATA TO MODAL
+    //   var modal1 = M.Modal.getInstance(besty, bestyPhoto);
+    //   //   $(".modal").modal("method");
+
+    //   // SECOND ATTEMPT TO SEND DATA TO MODAL
+    //   $.post("../public/survey", function(besty, bestyPhoto) {
+    //     $("#besty").text(besty);
+    //     $("#bestyPhoto").attr("src", bestyPhoto);
+    //     // $("#modal1").modal("toggle");
+    //     modal1.open();
+    //     // } else {
+    //     // alert("Please answer all of the survey questions to get matched!");
+    //   });
+    // }); // closes post
+
+    app.post("../public/survey/besty", function(besty, bestyPhoto) {
+      `\n-----------\nYour best match is ${besty}.\nCheck out ${bestyPhoto}!\n-----------\n`;
+    });
 
     // now that the person has a besty, add them to the list of people in friends
     friends.push(newFriend);
